@@ -23,3 +23,7 @@ To conceal the color tags, make sure you have conceal (vim 7.3+) enabled:
 set conceallevel = 3
 let g:vim_aetolia_conceal = 1
 ```
+
+## License
+
+Copyright (c) Louis Handfield. Distributed under vim's license. See `:help license`.
