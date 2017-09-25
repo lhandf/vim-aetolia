@@ -9,6 +9,8 @@ if has('conceal') && get(g:, 'vim_aetolia_conceal', 1)
     let s:concealends = 'concealends '
 endif
 
+" Colors
+
 hi def aetAnsiBlack         cterm=NONE  ctermfg=0   ctermbg=240
 hi def aetAnsiRed           cterm=NONE  ctermfg=1   ctermbg=NONE
 hi def aetAnsiGreen         cterm=NONE  ctermfg=2   ctermbg=NONE
@@ -25,6 +27,19 @@ hi def aetAnsiBoldBlue      cterm=NONE  ctermfg=12  ctermbg=NONE
 hi def aetAnsiBoldMagenta   cterm=NONE  ctermfg=13  ctermbg=NONE
 hi def aetAnsiBoldCyan      cterm=NONE  ctermfg=14  ctermbg=NONE
 hi def aetAnsiBoldWhite     cterm=NONE  ctermfg=15  ctermbg=NONE
+
+" ORGHELP links
+
+syn region aetHelpLink matchgroup=aetHelpLink start=/\[\W/ end=/\W\]/
+execute 'syn region aetOrgLink      ' . s:concealends . 'matchgroup=aetHelpLink start=/\[\[/ end=/\]\]/'
+execute 'syn region aetMainLink     ' . s:concealends . 'matchgroup=aetHelpLink start=/\[</ end=/>\]/'
+execute 'syn region aetSkillLink    ' . s:concealends . 'matchgroup=aetHelpLink start=/\[\!/ end=/\!\]/'
+
+hi def link aetOrgLink      aetAnsiBoldWhite
+hi def link aetMainLink     aetAnsiBoldWhite
+hi def link aetSkillLink    aetAnsiBoldWhite
+
+" Color tags
 
 syn region aetInlineClear matchgroup=aetInlineClear start=/{\(\d\+\|\a\+\)|/ end=/}/
 execute 'syn region aetBlack         ' . s:concealends . 'matchgroup=aetInlineClear start=/{\(0\|black\|BLACK\)|/ end=/}/'
